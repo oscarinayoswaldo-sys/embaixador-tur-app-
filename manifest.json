@@ -1,3 +1,4 @@
+
 {
   "name": "Embaixador Tur",
   "short_name": "Embaixador Tur",
@@ -7,5 +8,13 @@
   "scope": "./",
   "display": "standalone",
   "background_color": "#f2f5fa",
-  "theme_color": "#071b36"
+  "theme_color": "#071b36",
+  "icons": [
+    {
+      "src": "./launchericon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
