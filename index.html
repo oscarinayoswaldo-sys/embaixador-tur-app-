@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b36">
+  <title>Embaixador Tur</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f5fa;
+      color: #10233f;
+    }
+    header {
+      background: #071b36;
+      color: white;
+      text-align: center;
+      padding: 28px 16px;
+    }
+    .logo { font-size: 42px; }
+    header h1 { margin: 8px 0; }
+    header p { margin: 0; }
+    main {
+      max-width: 650px;
+      margin: 22px auto;
+      padding: 0 16px;
+    }
+    .card {
+      background: white;
+      padding: 22px;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+    h2 { color: #0b3970; margin-top: 0; }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+    input, select {
+      border: 1px solid #b8c5d8;
+      background: white;
+    }
+    button {
+      border: 0;
+      background: #087443;
+      color: white;
+      font-weight: bold;
+      margin-top: 14px;
+      cursor: pointer;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .service {
+      background: #eaf2ff;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .note { color: #52647c; font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #071b36;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">✈️ 🌎</div>
+    <h1>EMBAIXADOR TUR</h1>
+    <p>Tu viaje comienza aquí</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>¡Bienvenido!</h2>
+      <p>Tu agencia de confianza para viajar entre Brasil y Venezuela.</p>
+      <div class="services">
+        <div class="service">✈️<br><b>Pasajes aéreos</b></div>
+        <div class="service">🚌<br><b>Pasajes terrestres</b></div>
+        <div class="service">💸<br><b>Transferencias</b></div>
+        <div class="service">🤝<br><b>Asesoría de viajes</b></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Solicita información</h2>
+      <form id="travelForm">
+        <label for="nombre">Tu nombre</label>
+        <input id="nombre" required placeholder="Escribe tu nombre">
+
+        <label for="origen">Ciudad de origen</label>
+        <input id="origen" required placeholder="Ej.: Chapecó">
+
+        <label for="destino">Ciudad de destino</label>
+        <input id="destino" required placeholder="Ej.: Boa Vista">
+
+        <label for="fecha">Fecha aproximada del viaje</label>
+        <input id="fecha" type="date">
+
+        <label for="tipo">Servicio</label>
+        <select id="tipo">
+          <option>Pasaje aéreo</option>
+          <option>Pasaje terrestre</option>
+          <option>Transferencia</option>
+          <option>Asesoría de viaje</option>
+        </select>
+
+        <button type="submit">Consultar por WhatsApp</button>
+      </form>
+      <p class="note">La consulta no confirma una reserva ni garantiza disponibilidad.</p>
+    </section>
+  </main>
+
+  <footer>
+    <b>EMBAIXADOR TUR</b>
+    <p>Brasil 🇧🇷 · Venezuela 🇻🇪</p>
+    <p>Viaja con confianza.</p>
+  </footer>
+
+  <script>
+    document.getElementById("travelForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const origen = document.getElementById("origen").value;
+      const destino = document.getElementById("destino").value;
+      const fecha = document.getElementById("fecha").value || "Por definir";
+      const tipo = document.getElementById("tipo").value;
+
+      const mensaje = `Hola, Embaixador Tur. Soy ${nombre}. Quiero consultar sobre ${tipo}, desde ${origen} hasta ${destino}. Fecha: ${fecha}.`;
+      const numero = prompt("Escribe el WhatsApp de Embaixador Tur con código de país, solo números:");
+      if (numero && /^\d{10,15}$/.test(numero)) {
+        window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje), "_blank");
+      } else if (numero) {
+        alert("Introduce el número con código de país, sin espacios ni símbolos.");
+      }
+    });
+  </script>
+</body>
+</html>
