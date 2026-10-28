@@ -1,0 +1,11 @@
+{
+  "name": "Embaixador Tur",
+  "short_name": "Embaixador Tur",
+  "description": "Tu agencia de confianza para viajes entre Brasil y Venezuela.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f5fa",
+  "theme_color": "#071b36"
+}
